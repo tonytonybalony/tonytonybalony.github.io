@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>BLOG_FIRST_PAGE</title>
-      <link href="/BLOG-FIRST-PAGE/"/>
-      <url>/BLOG-FIRST-PAGE/</url>
+      <title>First_Blog_Post</title>
+      <link href="/First-Blog-Post/"/>
+      <url>/First-Blog-Post/</url>
       
-        <content type="html"><![CDATA[<h1 id="What’s-up-guys"><a href="#What’s-up-guys" class="headerlink" title="What’s up guys"></a>What’s up guys</h1><h2 id="testing"><a href="#testing" class="headerlink" title="testing"></a>testing</h2><h1 id="tony"><a href="#tony" class="headerlink" title="tony"></a>tony</h1><h2 id="tonytony"><a href="#tonytony" class="headerlink" title="tonytony"></a>tonytony</h2><h3 id="tonytony-1"><a href="#tonytony-1" class="headerlink" title="tonytony"></a>tonytony</h3><h4 id="tiohntontdj"><a href="#tiohntontdj" class="headerlink" title="tiohntontdj"></a>tiohntontdj</h4><p>I am building my first project, a pdf reader.</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="First-Blog-Post"><a href="#First-Blog-Post" class="headerlink" title="First Blog Post !!!"></a>First Blog Post !!!</h1><p>Hey everyone! Welcome to my first blog post. I’ll be sharing what I learn and the projects I work on — both as a way to document my journey and (hopefully) help others understand some concepts along the way.</p>]]></content>
       
       
       
