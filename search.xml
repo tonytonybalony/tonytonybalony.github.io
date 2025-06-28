@@ -4,12 +4,72 @@
   
     
     <entry>
+      <title>Markdown Cheatsheet</title>
+      <link href="/Markdown_Cheatsheet/"/>
+      <url>/Markdown_Cheatsheet/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Headings"><a href="#Headings" class="headerlink" title="Headings"></a>Headings</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># h1</span><br><span class="line">## h2</span><br><span class="line">### h3</span><br><span class="line">#### h4</span><br><span class="line">##### h5</span><br><span class="line">// After inspecting tonytonybalony_blog\blog-demo\.deploy_git\css\style.css</span><br><span class="line">// I find out h3 to h6 has the same size (h3 is underscored, h4 == h5 == h6).</span><br></pre></td></tr></table></figure><h1 id="h1"><a href="#h1" class="headerlink" title="h1"></a>h1</h1><h2 id="h2"><a href="#h2" class="headerlink" title="h2"></a>h2</h2><h3 id="h3"><a href="#h3" class="headerlink" title="h3"></a>h3</h3><h4 id="h4"><a href="#h4" class="headerlink" title="h4"></a>h4</h4><h5 id="h5"><a href="#h5" class="headerlink" title="h5"></a>h5</h5><h2 id="Emphasis"><a href="#Emphasis" class="headerlink" title="Emphasis"></a>Emphasis</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">*italic*</span><br><span class="line">_italic_</span><br><span class="line">**bold**</span><br><span class="line">__bold__</span><br><span class="line">***bold italic***</span><br><span class="line">~~strikethrough~~</span><br></pre></td></tr></table></figure><p><em>italic</em><br><em>italic</em><br><strong>bold</strong><br><strong>bold</strong><br><em><strong>bold italic</strong></em><br><del>strikethrough</del></p><h2 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[My Website](https://tonytonybalony.github.io)</span><br><span class="line">[My Website with title](https://tonytonybalony.github.io &quot;Tony&#x27;s Website&quot;)</span><br></pre></td></tr></table></figure><p><a href="https://tonytonybalony.github.io/">My Website</a><br><a href="https://tonytonybalony.github.io/" title="Tony&#39;s Website">My Website with title</a></p><h2 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[Image](IMG_1178.JPG)</span><br><span class="line">[Image with title](IMG_1178.JPG &quot;12345&quot;)</span><br><span class="line"></span><br><span class="line">// Before doing this, I will have to drag the jpg file into the folder of this post.</span><br><span class="line">// That&#x27;s why I set &quot;post_asset_folder&quot; to true in &quot;_config.yml&quot;, so it can automatically create a folder with the same file name of the post under &quot;source/post&quot;.</span><br></pre></td></tr></table></figure><p><a href="IMG_1178.JPG">Image</a><br><a href="IMG_1178.JPG" title="12345">Image with title</a></p><h2 id="Quotes"><a href="#Quotes" class="headerlink" title="Quotes"></a>Quotes</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; This is a quote.</span><br><span class="line">&gt;&gt; Nested quote.</span><br></pre></td></tr></table></figure><blockquote><p>This is a quote.</p><blockquote><p>Nested quote.</p></blockquote></blockquote><h2 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a>Lists</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- Item</span><br><span class="line">- Item</span><br><span class="line">    - Subitem</span><br><span class="line">* Item</span><br><span class="line"></span><br><span class="line">1. Item</span><br><span class="line">2. Item</span><br><span class="line">3. Item</span><br><span class="line">    1. Subitem</span><br><span class="line">    2. Subitem</span><br></pre></td></tr></table></figure><ul><li>Item</li><li>Item<ul><li>Subitem</li></ul></li></ul><ul><li>Item</li></ul><ol><li>Item</li><li>Item</li><li>Item<ol><li>Subitem</li><li>Subitem</li></ol></li></ol><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`mkdir /D/myfolder`</span><br></pre></td></tr></table></figure><p><code>mkdir /D/myfolder</code></p><pre>&#96;&#96;&#96;#include<stdio.h>int main(){    printf("Hello World!");    return 0;}&#96;&#96;&#96;</pre><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    printf(&quot;Hello World!&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;pre&gt;</span><br><span class="line">&amp;#96;&amp;#96;&amp;#96;</span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    printf(&quot;Hello World!&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line">&amp;#96;&amp;#96;&amp;#96;</span><br><span class="line">&lt;/pre&gt;</span><br></pre></td></tr></table></figure><p>This is how I display triple backticks in the example.</p><h2 id="Tablets"><a href="#Tablets" class="headerlink" title="Tablets"></a>Tablets</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">|   Mon   |   Tue   |   Wen   |</span><br><span class="line">|---------|---------|---------|</span><br><span class="line">|  Math   | ProDev  |   DS    |</span><br><span class="line">| English | DigiDes |  Alg    |</span><br></pre></td></tr></table></figure><table><thead><tr><th>Mon</th><th>Tue</th><th>Wen</th></tr></thead><tbody><tr><td>Math</td><td>ProDev</td><td>DS</td></tr><tr><td>English</td><td>DigiDes</td><td>Alg</td></tr></tbody></table><h2 id="Horizontal-Rule"><a href="#Horizontal-Rule" class="headerlink" title="Horizontal Rule"></a>Horizontal Rule</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">or</span><br><span class="line">***</span><br><span class="line">or</span><br><span class="line">___</span><br></pre></td></tr></table></figure><hr><h2 id="Task-List"><a href="#Task-List" class="headerlink" title="Task List"></a>Task List</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- [x] Done</span><br><span class="line">- [ ] Todo</span><br></pre></td></tr></table></figure><ul><li><input checked="" disabled="" type="checkbox"> Done</li><li><input disabled="" type="checkbox"> Todo</li></ul><h2 id="Raw-HTML"><a href="#Raw-HTML" class="headerlink" title="Raw HTML"></a>Raw HTML</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;note&quot;&gt;This is a custom HTML block!&lt;/div&gt;</span><br></pre></td></tr></table></figure><div class="note">This is a custom HTML block!</div>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tutorial </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Tutorial </tag>
+            
+            <tag> Programming </tag>
+            
+            <tag> Website Building </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Change_Icons</title>
+      <link href="/Change-Icons/"/>
+      <url>/Change-Icons/</url>
+      
+        <content type="html"><![CDATA[<p>I am going to teach you how to change a shortcut icon on Windows 11.</p><h2 id="Use-Icon-Editor-to-Build-Icon-Library"><a href="#Use-Icon-Editor-to-Build-Icon-Library" class="headerlink" title="Use Icon Editor to Build Icon Library"></a>Use Icon Editor to Build Icon Library</h2><ol><li>First of all, you will need to download <a href="https://greenfishsoftware.org/">Greenfish Icon Editor Pro</a>. This editor is totally free and open-source!</li><li>By the time downloading, you may head to browser and search for “ico download”. Download the <code>.ico</code> files you want.</li><li>Follow the setup instructions, install and lauch the icon editor.<ol><li>At the startup screen, click on New library.</li><li>Click on <strong>Add resources</strong> and choose the <code>.ico</code> you just downloaded.</li><li>Click <strong>Save as</strong>, type the file name and save your file at somewhere permanent.</li><li>A window will pop up asking you to select ICL format. Choose <strong>PE (32-bit Windows executable)</strong>. <em>Note: NE format is outdated and not recommended.</em></li></ol></li></ol><h2 id="Change-Icons"><a href="#Change-Icons" class="headerlink" title="Change Icons"></a>Change Icons</h2><ol><li>Go to the shortcut for which you want to change the icon.</li><li>Right click the shortcut and select <strong>Properties</strong> -&gt; <strong>Change Icon</strong> -&gt; <strong>Browse</strong>.</li><li>Select your <code>.icl</code> file at the location you just stored.</li><li>Select the icon by double clicking it in the icon bar and Click <strong>Apply</strong> -&gt; <strong>OK</strong>.</li></ol><blockquote><p><em>🎉 Congrats! You’re all done. Enjoy your new icon!</em></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tutorial </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>First_Blog_Post</title>
       <link href="/First-Blog-Post/"/>
       <url>/First-Blog-Post/</url>
       
         <content type="html"><![CDATA[<p>Hey everyone! Welcome to my first blog post. I’ll be sharing what I learn and the projects I work on — both as a way to document my journey and (hopefully) help others understand some concepts along the way.</p>]]></content>
       
+      
+      <categories>
+          
+          <category> Blog </category>
+          
+      </categories>
       
       
     </entry>
