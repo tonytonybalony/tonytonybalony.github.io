@@ -415,22 +415,22 @@ body ol {
 body dt {
   font-weight: bold;
 }
-body table {
+table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  font-size: 12px;
+  font-size: 0.95em;
   overflow: auto;
   display: block;
 }
-body th {
-  padding: 8px;
-  border-bottom: 1px dashed #908d8d;
+table th {
+  padding: 12px;
+  border-bottom: 1px solid #908d8d;
   color: #eee;
   font-weight: bold;
   font-size: 13px;
 }
-body td {
+table td {
   padding: 0 8px;
   border-bottom: none;
 }
