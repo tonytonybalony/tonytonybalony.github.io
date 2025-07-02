@@ -77,6 +77,35 @@
     
     
     <entry>
+      <title>Pointer</title>
+      <link href="/Pointer/"/>
+      <url>/Pointer/</url>
+      
+        <content type="html"><![CDATA[<p><strong>Normal Variables (Value Variables):</strong></p><ul><li>Store their data value directly in the memory location allocated to the variable</li><li>When you access the variable, you directly access its value</li></ul><p><strong>Pointer Variables:</strong></p><ul><li>Store memory addresses as their values</li><li>Provide indirect access to data by storing the location (address) where the actual data is stored</li><li>Can be dereferenced to access or modify the value at the stored address</li></ul><p><strong>Reference</strong>:</p><ul><li>In the context of pointers, a “reference” is essentially the memory address that points to where data is stored</li><li>When we say a pointer “references” something, it means the pointer contains the memory address of that data</li><li>For example, if we have a pointer <code>p</code> that points to variable <code>x</code>, we say “p references x” or “p holds a reference to x”</li></ul><p><strong>Dereferencing</strong>:</p><ul><li>“Dereferencing” is the act of accessing or modifying the value stored at the memory address contained in a pointer</li><li>It means “follow this address to get to the actual data”</li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>* ptr;      <span class="comment">// Pointer to integer</span></span><br><span class="line"><span class="type">char</span>* str;     <span class="comment">// Pointer to character</span></span><br><span class="line"><span class="type">float</span>* fPtr;   <span class="comment">// Pointer to float</span></span><br><span class="line"><span class="type">int</span> *ptr;      <span class="comment">// Some programmers prefer this style</span></span><br><span class="line"><span class="type">char</span> *str;     <span class="comment">// The asterisk is placed next to the variable name</span></span><br><span class="line"></span><br><span class="line">**<span class="type">int</span>* p1, * p2;  <span class="comment">// Both are pointers to integers</span></span><br><span class="line"><span class="type">int</span> *p1, *p2;   <span class="comment">// Alternative style</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span>** pPtr;    <span class="comment">// Pointer to a pointer to an integer</span></span><br><span class="line"><span class="type">char</span>*** pppChar; <span class="comment">// Triple pointer (pointer to pointer to pointer to char)</span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span>* ptr;      <span class="comment">// Pointer to a constant integer (value can&#x27;t be changed)</span></span><br><span class="line"><span class="type">int</span>* <span class="type">const</span> ptr = &amp;x; <span class="comment">// Constant pointer (can&#x27;t point to another address)</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span>* <span class="type">const</span> ptr = &amp;x; <span class="comment">// Constant pointer to constant integer</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span>* ptr;     <span class="comment">// Generic pointer that can point to any data type</span></span><br><span class="line"><span class="type">int</span> (*funcPtr)(<span class="type">int</span>, <span class="type">int</span>);  <span class="comment">// Pointer to function that takes two ints and returns int**</span></span><br></pre></td></tr></table></figure><blockquote><p>I know these notes are pretty dense and were mostly written for my own benefit. I’d be impressed if anyone besides me makes it to the end.</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Data Structure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Data Structure </tag>
+            
+            <tag> Notion </tag>
+            
+            <tag> Pointer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Time_Complexity</title>
       <link href="/Time-Complexity/"/>
       <url>/Time-Complexity/</url>
