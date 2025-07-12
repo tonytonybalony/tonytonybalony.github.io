@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>Spotify-API-Application</title>
+      <link href="/Spotify-API-Application/"/>
+      <url>/Spotify-API-Application/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Building-a-Spotify-API-Application"><a href="#Building-a-Spotify-API-Application" class="headerlink" title="Building a Spotify API Application"></a>Building a Spotify API Application</h1><p>This tutorial demonstrates how to use the Spotify Web API to create playlists programmatically using JavaScript.</p><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>The Spotify Web API allows developers to access Spotify’s music catalog and user data. In this example, we’ll create a playlist with predefined tracks and embed it in our blog.</p><h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><ul><li>Spotify Developer Account</li><li>Access token with appropriate scopes (<code>playlist-modify-private</code>, <code>user-read-private</code>)</li></ul><h2 id="Code-Implementation"><a href="#Code-Implementation" class="headerlink" title="Code Implementation"></a>Code Implementation</h2><p>The complete JavaScript implementation is available here: <a href="main.js">main.js</a></p><h3 id="Key-Features"><a href="#Key-Features" class="headerlink" title="Key Features:"></a>Key Features:</h3><ol><li><strong>Authentication</strong>: Uses Bearer token for API access</li><li><strong>Playlist Creation</strong>: Creates a private playlist for the user</li><li><strong>Track Addition</strong>: Adds predefined tracks to the playlist</li><li><strong>Error Handling</strong>: Basic error management for API calls</li></ol><h3 id="Code-Structure"><a href="#Code-Structure" class="headerlink" title="Code Structure:"></a>Code Structure:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Fetch wrapper for Spotify API calls</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">fetchWebApi</span>(<span class="params">endpoint, method, body</span>) &#123;</span><br><span class="line">  <span class="comment">// API call implementation</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create playlist and add tracks</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">createPlaylist</span>(<span class="params">tracksUri</span>) &#123;</span><br><span class="line">  <span class="comment">// Playlist creation logic</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><p>Here’s the playlist created by our application:</p><iframe  title="Spotify Embed: Recommendation Playlist"  src="https://open.spotify.com/embed/playlist/2Gl1WAFM4u3VmnMQl55fif?utm_source=generator&theme=0"  width="100%"  height="360"  frameborder="0"  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"  loading="lazy"></iframe><h2 id="Security-Note"><a href="#Security-Note" class="headerlink" title="Security Note"></a>Security Note</h2><p>⚠️ <strong>Important</strong>: Never expose your actual access tokens in production code. Use environment variables or secure token management systems.</p><h2 id="Next-Steps"><a href="#Next-Steps" class="headerlink" title="Next Steps"></a>Next Steps</h2><ul><li>Implement OAuth flow for user authentication</li><li>Add error handling and user feedback</li><li>Create dynamic playlists based on user preferences</li><li>Explore other Spotify API endpoints</li></ul><h2 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h2><ul><li><a href="https://developer.spotify.com/documentation/web-api/">Spotify Web API Documentation</a></li><li><a href="https://developer.spotify.com/dashboard/applications">Spotify App Settings</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tutorial </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> spotify </tag>
+            
+            <tag> api </tag>
+            
+            <tag> javascript </tag>
+            
+            <tag> web-development </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Markdown Cheatsheet</title>
       <link href="/Markdown_Cheatsheet/"/>
       <url>/Markdown_Cheatsheet/</url>
