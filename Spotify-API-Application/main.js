@@ -1,7 +1,7 @@
 // Get top 5 tracks from Spotify using the Web API
 
 // Authorization token that must have been created previously. See : https://developer.spotify.com/documentation/web-api/concepts/authorization
-const token = 'BQDtkn2A0-K0VPAWQPtgKJXWKmSaGbQ1GwGCaJnYbvVxxsyZTgxuh1pL-r2iK2cJpCPcYqhuxPXki-Linh5yKbFFckpBQOlYc5p0WRGfCboz-zC1aNPY_VrWCJpYiwrh6_DggJWC40D4VIS-YJAumsszD7BCMwl9I3LejSV7kuKdgxO8QnhRL0QN4iUm6wkCj14r06eZArHcrKbHBrCeT-c09T-qzClY8-8SEsgYV5KHSuRyFyXa8GM-R4GqTYjEiw2X2VwC8QRJSfIP32mNxXkXrOxyq2E5CiTz2grdbrLopoDMl8lvCElbBG2V6COVgOUP';
+const token = 'YOUR_SPOTIFY_ACCESS_TOKEN_HERE';
 async function fetchWebApi(endpoint, method, body) {
   const res = await fetch(`https://api.spotify.com/${endpoint}`, {
     headers: {
