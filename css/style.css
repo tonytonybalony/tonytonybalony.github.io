@@ -434,6 +434,22 @@ table td {
   padding: 0 8px;
   border-bottom: none;
 }
+code {
+  background-color: rgba(135,131,120,0.15) !important;
+  color: #518f62 !important;
+  border-radius: 3px !important;
+  padding: 0.2em 0.4em !important;
+  font-size: 90% !important;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace !important;
+  border: none !important;
+  font-weight: normal !important;
+}
+pre code {
+  background-color: transparent !important;
+  color: inherit !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
 @font-face {
   font-style: normal;
   font-family: "Meslo LG";
