@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Search is finding a solution to a given problem. Search problems involve an initial state and a goal state, and returns a solution on how it gets from the former to the latter.  AgentAn entity that pe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine-Learning-Search">
+<meta property="og:url" content="http://tonytonybalony.github.io/Machine-Learning-Search/index.html">
+<meta property="og:site_name" content="Tony&#39;s Website">
+<meta property="og:description" content="Search is finding a solution to a given problem. Search problems involve an initial state and a goal state, and returns a solution on how it gets from the former to the latter.  AgentAn entity that pe">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://tonytonybalony.github.io/Machine-Learning-Search/Search.gif">
+<meta property="og:image" content="http://tonytonybalony.github.io/Machine-Learning-Search/gbfs.png">
+<meta property="og:image" content="http://tonytonybalony.github.io/Machine-Learning-Search/as.png">
+<meta property="article:published_time" content="2025-07-31T10:39:44.000Z">
+<meta property="article:modified_time" content="2025-08-02T16:59:11.822Z">
+<meta property="article:author" content="Tony">
+<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="Search">
+<meta property="article:tag" content="Harvard CS50">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://tonytonybalony.github.io/Machine-Learning-Search/Search.gif">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Machine-Learning-Search</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8L0C6M9YC5"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8L0C6M9YC5');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+    <script async defer
+            data-website-id="ec257733-b499-4587-bbb0-2cff9673436a"
+            src="https://umami-production-ded6.up.railway.app/script.js">
+    </script>
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Categories</a></li><!--
+     --><!--
+       --><li><a href="/projects/">Projects</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/Google-Dorking-Cheatsheet/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/Discrete-Math-Chapter-1-Logic-And-Proof/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://tonytonybalony.github.io/Machine-Learning-Search/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://tonytonybalony.github.io/Machine-Learning-Search/&text=Machine-Learning-Search"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://tonytonybalony.github.io/Machine-Learning-Search/&title=Machine-Learning-Search"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://tonytonybalony.github.io/Machine-Learning-Search/&is_video=false&description=Machine-Learning-Search"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Machine-Learning-Search&body=Check out this article: http://tonytonybalony.github.io/Machine-Learning-Search/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://tonytonybalony.github.io/Machine-Learning-Search/&title=Machine-Learning-Search"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://tonytonybalony.github.io/Machine-Learning-Search/&title=Machine-Learning-Search"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://tonytonybalony.github.io/Machine-Learning-Search/&title=Machine-Learning-Search"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://tonytonybalony.github.io/Machine-Learning-Search/&title=Machine-Learning-Search"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://tonytonybalony.github.io/Machine-Learning-Search/&name=Machine-Learning-Search&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://tonytonybalony.github.io/Machine-Learning-Search/&t=Machine-Learning-Search"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Agent"><span class="toc-number">1.</span> <span class="toc-text">Agent</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#State"><span class="toc-number">2.</span> <span class="toc-text">State</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Actions"><span class="toc-number">3.</span> <span class="toc-text">Actions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Transition-Model"><span class="toc-number">4.</span> <span class="toc-text">Transition Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#State-Space"><span class="toc-number">5.</span> <span class="toc-text">State Space</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Uninformed-First-Search"><span class="toc-number"></span> <span class="toc-text">Uninformed First Search</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Breadth-First-Search-BFS"><span class="toc-number">1.</span> <span class="toc-text">Breadth-First Search (BFS)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Depth-First-Search-DFS"><span class="toc-number">2.</span> <span class="toc-text">Depth-First Search (DFS)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Informed-Search"><span class="toc-number"></span> <span class="toc-text">Informed Search</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Greedy-Best-First-Search"><span class="toc-number">1.</span> <span class="toc-text">Greedy Best-First Search</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-Search-A-star-Search"><span class="toc-number">2.</span> <span class="toc-text">A* Search (A star Search)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Optimal-Cases"><span class="toc-number">2.1.</span> <span class="toc-text">Optimal Cases</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adversarial-Search"><span class="toc-number">3.</span> <span class="toc-text">Adversarial Search</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Machine-Learning-Search
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Tony</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-07-31T10:39:44.000Z" class="dt-published" itemprop="datePublished">2025-07-31</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Machine-Learning/">Machine Learning</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Harvard-CS50/" rel="tag">Harvard CS50</a>, <a class="p-category" href="/tags/Machine-Learning/" rel="tag">Machine Learning</a>, <a class="p-category" href="/tags/Search/" rel="tag">Search</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p><strong>Search</strong> is finding a solution to a given problem. Search problems involve an initial state and a goal state, and returns a solution on how it gets from the former to the latter. </p>
+<h2 id="Agent"><a href="#Agent" class="headerlink" title="Agent"></a>Agent</h2><p>An entity that perceives its environment and acts upon that environment. </p>
+<h2 id="State"><a href="#State" class="headerlink" title="State"></a>State</h2><p>A configuration of an agent in its environment.<br><strong>Initial State</strong> is the state from which the algorithm starts.<br><strong>Goal State</strong> is the state at which the algorithm should stop.</p>
+<h2 id="Actions"><a href="#Actions" class="headerlink" title="Actions"></a>Actions</h2><p>The choices that can be made in a state.</p>
+<h2 id="Transition-Model"><a href="#Transition-Model" class="headerlink" title="Transition Model"></a>Transition Model</h2><p>A desciption of how a state moves from one to another, either as an algorithm or a set of rules.</p>
+<h2 id="State-Space"><a href="#State-Space" class="headerlink" title="State Space"></a>State Space</h2><p>The set of all State reachable from the initial state by any sequence. Graphically, it looks like all the states that connect each others by actions and forms a graph structure State Space.</p>
+<h1 id="Uninformed-First-Search"><a href="#Uninformed-First-Search" class="headerlink" title="Uninformed First Search"></a>Uninformed First Search</h1><p>Search strategies that use no problem-specific knowledge. </p>
+<h2 id="Breadth-First-Search-BFS"><a href="#Breadth-First-Search-BFS" class="headerlink" title="Breadth-First Search (BFS)"></a>Breadth-First Search (BFS)</h2><p>Explore all nodes at one level before moving on to the next.<br>Use <strong>queue</strong> to keep track of the nodes.<br>Good for finding the shortest path in unweighted graphs.</p>
+<h2 id="Depth-First-Search-DFS"><a href="#Depth-First-Search-DFS" class="headerlink" title="Depth-First Search (DFS)"></a>Depth-First Search (DFS)</h2><p>Explore all nodes at one path and head back to another path.<br>Use <strong>stack</strong> to keep track of the nodes.<br>Useful for tasks like topological sorting, cycle detection, or exploring all paths.</p>
+<p>They are 2 fundamental ways for traversing or searching data structures such as trees or graphs Lets look at this GIF.<br><img src="/Machine-Learning-Search/Search.gif" alt="GIF"></p>
+<p>They practice of both of these algorithm shares the same concept, however <strong>BFS is applied into the frontier by Queue</strong> and <strong>DFS is applied into the frontier by Stack</strong>. Let me explain this by applying the left-hand side graph with DFS. First, look at the left-hand side of the GIF. Imagine there is a stack frontier and a node. The node first point at 1. Stack push 1 -&gt; pop 1 and push 3 2. The node now points to 2. Stack pop 2 and push 5 and 4. The node points to 4. Stack pop 4 and the node now points 5. Stack pop 5 -&gt; push 7 -&gt; pop 7. The node now points to 3. Stack pop 3 -&gt; push 6 -&gt; pop 6 -&gt; push 8 -&gt; pop 8. Follow the sequence we pop, 1 -&gt; 2 -&gt; 4 -&gt; 5 -&gt; 7 -&gt; 3 -&gt; 6 -&gt; 8 this is sequence is same as the one on the right functions. You may figure the right-hand side one out by applying it with a queue frontier by yourself.</p>
+<h1 id="Informed-Search"><a href="#Informed-Search" class="headerlink" title="Informed Search"></a>Informed Search</h1><p>Search strategy that uses problem-specific knowledge to find solutions more efficiently</p>
+<h2 id="Greedy-Best-First-Search"><a href="#Greedy-Best-First-Search" class="headerlink" title="Greedy Best-First Search"></a>Greedy Best-First Search</h2><p>Search algorithm that expands the node that is closest to the goal, as estimated by a <strong>heuristic function</strong></p>
+<p><strong>Heuristic Function</strong>: It is a strategy used in algorithms to estimate the cost or distance to reach the goal, which can significantly improve problem-solving efficiency. It provides searching algorithms estimates of the most promising paths to a solution.</p>
+<p><img src="/Machine-Learning-Search/gbfs.png" alt="IMAGE"></p>
+<p>With greedy best-first search, it will choose the path which cost the least to reach the goal, the right side with 11 blocks away.</p>
+<h2 id="A-Search-A-star-Search"><a href="#A-Search-A-star-Search" class="headerlink" title="A* Search (A star Search)"></a>A* Search (A star Search)</h2><p>Search algorithm that expands node with the lowest value of g(n)+h(n), where g(n) &#x3D; cost to reach node and h(n) &#x3D; estimated cost to goal which is heuristic function.</p>
+<p><img src="/Machine-Learning-Search/as.png" alt="IMAGE"></p>
+<p>With A* Search, it get to choose the path with the least value of g(n)+h(n) which one is 15+6 and the other is 6+13. It then move on to the block with 13 and encounter another path swifting situation with 7+14 and 15+6, it chooses the current path and so on until hit the goal.</p>
+<h3 id="Optimal-Cases"><a href="#Optimal-Cases" class="headerlink" title="Optimal Cases"></a>Optimal Cases</h3><p>h(n) is admissible (never overestimates the true cost), and h(n) is consistent (for each node n and successor n’ with cost c, h(n) ≤ h(n’)+c ).<br>Simply speaking, if I am at a current state, the next states heuristic value plus the cost for me to make that step should not increases. The better the heuristic function is, the better you will be able to solve the problem in the fewer states that you will have to explore.</p>
+<h2 id="Adversarial-Search"><a href="#Adversarial-Search" class="headerlink" title="Adversarial Search"></a>Adversarial Search</h2>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/categories/">Categories</a></li>
+        
+          <li><a href="/projects/">Projects</a></li>
+        
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Agent"><span class="toc-number">1.</span> <span class="toc-text">Agent</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#State"><span class="toc-number">2.</span> <span class="toc-text">State</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Actions"><span class="toc-number">3.</span> <span class="toc-text">Actions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Transition-Model"><span class="toc-number">4.</span> <span class="toc-text">Transition Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#State-Space"><span class="toc-number">5.</span> <span class="toc-text">State Space</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Uninformed-First-Search"><span class="toc-number"></span> <span class="toc-text">Uninformed First Search</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Breadth-First-Search-BFS"><span class="toc-number">1.</span> <span class="toc-text">Breadth-First Search (BFS)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Depth-First-Search-DFS"><span class="toc-number">2.</span> <span class="toc-text">Depth-First Search (DFS)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Informed-Search"><span class="toc-number"></span> <span class="toc-text">Informed Search</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Greedy-Best-First-Search"><span class="toc-number">1.</span> <span class="toc-text">Greedy Best-First Search</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-Search-A-star-Search"><span class="toc-number">2.</span> <span class="toc-text">A* Search (A star Search)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Optimal-Cases"><span class="toc-number">2.1.</span> <span class="toc-text">Optimal Cases</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adversarial-Search"><span class="toc-number">3.</span> <span class="toc-text">Adversarial Search</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://tonytonybalony.github.io/Machine-Learning-Search/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://tonytonybalony.github.io/Machine-Learning-Search/&text=Machine-Learning-Search"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://tonytonybalony.github.io/Machine-Learning-Search/&title=Machine-Learning-Search"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://tonytonybalony.github.io/Machine-Learning-Search/&is_video=false&description=Machine-Learning-Search"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Machine-Learning-Search&body=Check out this article: http://tonytonybalony.github.io/Machine-Learning-Search/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://tonytonybalony.github.io/Machine-Learning-Search/&title=Machine-Learning-Search"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://tonytonybalony.github.io/Machine-Learning-Search/&title=Machine-Learning-Search"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://tonytonybalony.github.io/Machine-Learning-Search/&title=Machine-Learning-Search"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://tonytonybalony.github.io/Machine-Learning-Search/&title=Machine-Learning-Search"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://tonytonybalony.github.io/Machine-Learning-Search/&name=Machine-Learning-Search&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://tonytonybalony.github.io/Machine-Learning-Search/&t=Machine-Learning-Search"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2025
+    Tony
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Categories</a></li><!--
+     --><!--
+       --><li><a href="/projects/">Projects</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
