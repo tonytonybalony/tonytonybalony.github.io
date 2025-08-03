@@ -48,6 +48,9 @@
 .rtl #footer #logo {
   float: right;
 }
+.rtl article .content h1:before {
+  right: -1rem;
+}
 .rtl article .content h2:before {
   right: -1rem;
 }
