@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Humans reason based on existing knowledge and draw conclusions. The concept of representing knowledge and drawing conclusions from it is also used in AI, and in this lecture we will explore how we can">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine-Learning-Knowledge">
+<meta property="og:url" content="http://tonytonybalony.github.io/Machine-Learning-Knowledge/index.html">
+<meta property="og:site_name" content="Tony&#39;s Website">
+<meta property="og:description" content="Humans reason based on existing knowledge and draw conclusions. The concept of representing knowledge and drawing conclusions from it is also used in AI, and in this lecture we will explore how we can">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-08-26T08:16:44.000Z">
+<meta property="article:modified_time" content="2025-08-26T08:16:44.803Z">
+<meta property="article:author" content="Tony">
+<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="Knowledge">
+<meta property="article:tag" content="Harvard CS50">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Machine-Learning-Knowledge</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8L0C6M9YC5"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8L0C6M9YC5');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+    <script async defer
+            data-website-id="ec257733-b499-4587-bbb0-2cff9673436a"
+            src="https://umami-production-ded6.up.railway.app/script.js">
+    </script>
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Categories</a></li><!--
+     --><!--
+       --><li><a href="/projects/">Projects</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/Google-Dorking-Cheatsheet/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://tonytonybalony.github.io/Machine-Learning-Knowledge/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://tonytonybalony.github.io/Machine-Learning-Knowledge/&text=Machine-Learning-Knowledge"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://tonytonybalony.github.io/Machine-Learning-Knowledge/&title=Machine-Learning-Knowledge"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://tonytonybalony.github.io/Machine-Learning-Knowledge/&is_video=false&description=Machine-Learning-Knowledge"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Machine-Learning-Knowledge&body=Check out this article: http://tonytonybalony.github.io/Machine-Learning-Knowledge/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://tonytonybalony.github.io/Machine-Learning-Knowledge/&title=Machine-Learning-Knowledge"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://tonytonybalony.github.io/Machine-Learning-Knowledge/&title=Machine-Learning-Knowledge"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://tonytonybalony.github.io/Machine-Learning-Knowledge/&title=Machine-Learning-Knowledge"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://tonytonybalony.github.io/Machine-Learning-Knowledge/&title=Machine-Learning-Knowledge"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://tonytonybalony.github.io/Machine-Learning-Knowledge/&name=Machine-Learning-Knowledge&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://tonytonybalony.github.io/Machine-Learning-Knowledge/&t=Machine-Learning-Knowledge"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Knowledge-Based-Agents"><span class="toc-number">1.</span> <span class="toc-text">Knowledge-Based Agents</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Propositional-Logic"><span class="toc-number">2.</span> <span class="toc-text">Propositional Logic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Model"><span class="toc-number">3.</span> <span class="toc-text">Model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Model-Example"><span class="toc-number">3.1.</span> <span class="toc-text">Model Example</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Knowledge-Base"><span class="toc-number">4.</span> <span class="toc-text">Knowledge Base</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Entailment-models"><span class="toc-number">5.</span> <span class="toc-text">Entailment $\models$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Implication"><span class="toc-number">5.1.</span> <span class="toc-text">Implication:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Entailments"><span class="toc-number">5.2.</span> <span class="toc-text">Entailments:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Inference"><span class="toc-number"></span> <span class="toc-text">Inference</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Inference-Rules"><span class="toc-number"></span> <span class="toc-text">Inference Rules</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Modus-Ponens"><span class="toc-number">1.</span> <span class="toc-text">Modus Ponens</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#And-Elimination"><span class="toc-number">2.</span> <span class="toc-text">And Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Double-Negation-Elimination"><span class="toc-number">3.</span> <span class="toc-text">Double Negation Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Implication-Elimination"><span class="toc-number">4.</span> <span class="toc-text">Implication Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Biconditional-Elimination"><span class="toc-number">5.</span> <span class="toc-text">Biconditional Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#De-Morgan%E2%80%99s-Law"><span class="toc-number">6.</span> <span class="toc-text">De Morgan’s Law</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Distributive-Property"><span class="toc-number">7.</span> <span class="toc-text">Distributive Property</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Machine-Learning-Knowledge
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Tony</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-08-26T08:16:44.000Z" class="dt-published" itemprop="datePublished">2025-08-26</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Machine-Learning/">Machine Learning</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Harvard-CS50/" rel="tag">Harvard CS50</a>, <a class="p-category" href="/tags/Knowledge/" rel="tag">Knowledge</a>, <a class="p-category" href="/tags/Machine-Learning/" rel="tag">Machine Learning</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>Humans reason based on existing knowledge and draw conclusions. The concept of representing knowledge and drawing conclusions from it is also used in AI, and in this lecture we will explore how we can achieve this behavior.</p>
+<h2 id="Knowledge-Based-Agents"><a href="#Knowledge-Based-Agents" class="headerlink" title="Knowledge-Based Agents"></a>Knowledge-Based Agents</h2><p>These are agents that reason by operating on internal representations of knowledge.</p>
+<p>I will explain what does “reasoning based on knowledge to draw a conclusion” mean using the following example.</p>
+<ol>
+<li>If it didn’t rain, Harry visited Hagrid today.</li>
+<li>Harry visited Hagrid or Dumbledore today, but not both.</li>
+<li>Harry visited Dumbledore today.</li>
+</ol>
+<p>Based on these three sentences, we can draw two conclusions</p>
+<p>Harry did not visit Hagrid.<br>It rained today.</p>
+<p><strong>Sentence</strong>: A sentence is an assertion about the world in a knowledge representation language. A sentence is how AI stores knowledge and uses it to infer new information.</p>
+<h2 id="Propositional-Logic"><a href="#Propositional-Logic" class="headerlink" title="Propositional Logic"></a>Propositional Logic</h2><p>All you have to know will be found here <a href="https://tonytonybalony.github.io/Discrete-Math-Chapter-1-Logic-And-Proof/">Discrete-Math-Chapter-1-Logic-And-Proof</a></p>
+<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p>Propositions are statements about the world that can be either true or false. However, knowledge about the world is represented in the truth values of these propositions. The model is all the truth-value assignments that provide information about the world.</p>
+<h3 id="Model-Example"><a href="#Model-Example" class="headerlink" title="Model Example"></a>Model Example</h3><ul>
+<li>Let P: <em>“It is raining.”</em> </li>
+<li>Let Q: <em>“It is Tuesday.”</em></li>
+</ul>
+<p>A model could be the following truth-value assignment,<br>where <em><strong>{P &#x3D; True, Q &#x3D; False}</strong></em>:<br>This model means that it is raining, but it is not Tuesday.</p>
+<p>However, there are more possible models in this situation (another example, <em><strong>{P &#x3D; True, Q &#x3D; True}</strong></em>, where it is both raining and a Tuesday). </p>
+<p>In fact, the number of possible models is 2 to the power of the number of propositions. In this case, we had 2 propositions, so 2²&#x3D;4 possible models.</p>
+<h2 id="Knowledge-Base"><a href="#Knowledge-Base" class="headerlink" title="Knowledge Base"></a>Knowledge Base</h2><p><strong>KB</strong></p>
+<p>The knowledge base is a set of sentences known by a knowledge-based agent. This is knowledge that the AI is provided about the world in the form of propositional logic sentences that can be used to make additional inferences about the world.</p>
+<h2 id="Entailment-models"><a href="#Entailment-models" class="headerlink" title="Entailment $\models$"></a>Entailment $\models$</h2><p>Entailment is a logical relationship where, if a set of sentences (the knowledge base) is true, another sentence must also be true in every possible model. In other words, the knowledge base entails a conclusion if, whenever the knowledge base is true, the conclusion is also true.</p>
+<p>For example, $(P \models Q)$ means that in every model where P is true, Q is also true.</p>
+<h3 id="Implication"><a href="#Implication" class="headerlink" title="Implication:"></a><strong>Implication</strong>:</h3><p>Connecting truth values is about how the truth of one proposition affects the truth of another in a specific situation, often using truth tables. For example, $(P \rightarrow Q)$ is true except when P is true and Q is false. Truth value connection checks how statements relate in one situation (truth table).</p>
+<h3 id="Entailments"><a href="#Entailments" class="headerlink" title="Entailments:"></a><strong>Entailments</strong>:</h3><p>A semantic relationship is about whether, in every possible model (interpretation of the world), the truth of one set of sentences guarantees the truth of another. It’s not just about matching truth values(like how implication does), but about the logical consequence across all possible scenarios. Semantic relationship checks if one statement must be true whenever another is true, in all possible worlds (models).</p>
+<h1 id="Inference"><a href="#Inference" class="headerlink" title="Inference"></a>Inference</h1><p>Inference is the process of deriving new conclusions from an existing knowledge base using logical rules.</p>
+<ul>
+<li>To determine if $(KB \models α)$ (in other words, answering the question: “can we conclude that α is true based on our knowledge base”)<ul>
+<li>Enumerate all possible models.</li>
+<li>If in every model where KB is true, α is true as well, then KB entails α $(KB \models α)$.</li>
+</ul>
+</li>
+</ul>
+<h1 id="Inference-Rules"><a href="#Inference-Rules" class="headerlink" title="Inference Rules"></a>Inference Rules</h1><p>Enumerate all possible model is unefficient, so we use inference rule to generate conclusion instead of running through every possible model.</p>
+<h2 id="Modus-Ponens"><a href="#Modus-Ponens" class="headerlink" title="Modus Ponens"></a>Modus Ponens</h2><p> $\alpha \rightarrow \beta$<br> $\alpha$</p>
+<div>---------</div>
+
+<p> $\beta$</p>
+<h2 id="And-Elimination"><a href="#And-Elimination" class="headerlink" title="And Elimination"></a>And Elimination</h2><div style="display: flex; gap: 90px;">
+<div>
+α ∧ β
+
+<hr>
+<p>α </p>
+</div>
+<div>
+
+
+<p> OR</p>
+</div>
+<div>
+α ∧ β
+
+<hr>
+<p>β</p>
+</div>
+</div>
+
+<h2 id="Double-Negation-Elimination"><a href="#Double-Negation-Elimination" class="headerlink" title="Double Negation Elimination"></a>Double Negation Elimination</h2><p> $\neg\hspace{1mm}(\hspace{1mm}\neg\hspace{1mm}\alpha)$</p>
+<div>---------</div>
+
+<p> $\alpha$</p>
+<h2 id="Implication-Elimination"><a href="#Implication-Elimination" class="headerlink" title="Implication Elimination"></a>Implication Elimination</h2><p> $\alpha \rightarrow \beta$</p>
+<div>---------</div>
+
+<p> $\neg\hspace{1mm}\alpha\vee\beta$</p>
+<table>
+<thead>
+<tr>
+<th>$P$</th>
+<th>$Q$</th>
+<th>$P\rightarrow Q$</th>
+<th>$\neg\hspace{1mm} P\vee Q$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F</td>
+<td>F</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>F</td>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>T</td>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+</tr>
+</tbody></table>
+<h2 id="Biconditional-Elimination"><a href="#Biconditional-Elimination" class="headerlink" title="Biconditional Elimination"></a>Biconditional Elimination</h2><p> $\alpha \leftrightarrow \beta$</p>
+<div>------------------------------</div>
+
+<p> $(\alpha\rightarrow\beta)\vee(\beta\rightarrow\alpha)$</p>
+<h2 id="De-Morgan’s-Law"><a href="#De-Morgan’s-Law" class="headerlink" title="De Morgan’s Law"></a>De Morgan’s Law</h2><div style="display: flex; gap: 90px;">
+<div>
+¬ (α ∧ β)
+
+<hr>
+<p>¬ α ∨ ¬ β</p>
+</div>
+<div>
+¬ (α ∨ β)
+
+<hr>
+<p>¬ α ∧ ¬ β</p>
+</div>
+</div>
+
+<h2 id="Distributive-Property"><a href="#Distributive-Property" class="headerlink" title="Distributive Property"></a>Distributive Property</h2>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/categories/">Categories</a></li>
+        
+          <li><a href="/projects/">Projects</a></li>
+        
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Knowledge-Based-Agents"><span class="toc-number">1.</span> <span class="toc-text">Knowledge-Based Agents</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Propositional-Logic"><span class="toc-number">2.</span> <span class="toc-text">Propositional Logic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Model"><span class="toc-number">3.</span> <span class="toc-text">Model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Model-Example"><span class="toc-number">3.1.</span> <span class="toc-text">Model Example</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Knowledge-Base"><span class="toc-number">4.</span> <span class="toc-text">Knowledge Base</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Entailment-models"><span class="toc-number">5.</span> <span class="toc-text">Entailment $\models$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Implication"><span class="toc-number">5.1.</span> <span class="toc-text">Implication:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Entailments"><span class="toc-number">5.2.</span> <span class="toc-text">Entailments:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Inference"><span class="toc-number"></span> <span class="toc-text">Inference</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Inference-Rules"><span class="toc-number"></span> <span class="toc-text">Inference Rules</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Modus-Ponens"><span class="toc-number">1.</span> <span class="toc-text">Modus Ponens</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#And-Elimination"><span class="toc-number">2.</span> <span class="toc-text">And Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Double-Negation-Elimination"><span class="toc-number">3.</span> <span class="toc-text">Double Negation Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Implication-Elimination"><span class="toc-number">4.</span> <span class="toc-text">Implication Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Biconditional-Elimination"><span class="toc-number">5.</span> <span class="toc-text">Biconditional Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#De-Morgan%E2%80%99s-Law"><span class="toc-number">6.</span> <span class="toc-text">De Morgan’s Law</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Distributive-Property"><span class="toc-number">7.</span> <span class="toc-text">Distributive Property</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://tonytonybalony.github.io/Machine-Learning-Knowledge/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://tonytonybalony.github.io/Machine-Learning-Knowledge/&text=Machine-Learning-Knowledge"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://tonytonybalony.github.io/Machine-Learning-Knowledge/&title=Machine-Learning-Knowledge"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://tonytonybalony.github.io/Machine-Learning-Knowledge/&is_video=false&description=Machine-Learning-Knowledge"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Machine-Learning-Knowledge&body=Check out this article: http://tonytonybalony.github.io/Machine-Learning-Knowledge/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://tonytonybalony.github.io/Machine-Learning-Knowledge/&title=Machine-Learning-Knowledge"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://tonytonybalony.github.io/Machine-Learning-Knowledge/&title=Machine-Learning-Knowledge"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://tonytonybalony.github.io/Machine-Learning-Knowledge/&title=Machine-Learning-Knowledge"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://tonytonybalony.github.io/Machine-Learning-Knowledge/&title=Machine-Learning-Knowledge"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://tonytonybalony.github.io/Machine-Learning-Knowledge/&name=Machine-Learning-Knowledge&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://tonytonybalony.github.io/Machine-Learning-Knowledge/&t=Machine-Learning-Knowledge"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2025
+    Tony
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Categories</a></li><!--
+     --><!--
+       --><li><a href="/projects/">Projects</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
