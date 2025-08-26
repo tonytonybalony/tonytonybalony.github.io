@@ -13,13 +13,15 @@
 <meta property="og:site_name" content="Tony&#39;s Website">
 <meta property="og:description" content="Humans reason based on existing knowledge and draw conclusions. The concept of representing knowledge and drawing conclusions from it is also used in AI, and in this lecture we will explore how we can">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://tonytonybalony.github.io/Machine-Learning-Knowledge/BA.png">
 <meta property="article:published_time" content="2025-08-26T08:16:44.000Z">
-<meta property="article:modified_time" content="2025-08-26T08:16:44.803Z">
+<meta property="article:modified_time" content="2025-08-26T17:12:49.250Z">
 <meta property="article:author" content="Tony">
 <meta property="article:tag" content="Machine Learning">
 <meta property="article:tag" content="Knowledge">
 <meta property="article:tag" content="Harvard CS50">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://tonytonybalony.github.io/Machine-Learning-Knowledge/BA.png">
     
     
       
@@ -142,7 +144,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Knowledge-Based-Agents"><span class="toc-number">1.</span> <span class="toc-text">Knowledge-Based Agents</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Propositional-Logic"><span class="toc-number">2.</span> <span class="toc-text">Propositional Logic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Model"><span class="toc-number">3.</span> <span class="toc-text">Model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Model-Example"><span class="toc-number">3.1.</span> <span class="toc-text">Model Example</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Knowledge-Base"><span class="toc-number">4.</span> <span class="toc-text">Knowledge Base</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Entailment-models"><span class="toc-number">5.</span> <span class="toc-text">Entailment $\models$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Implication"><span class="toc-number">5.1.</span> <span class="toc-text">Implication:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Entailments"><span class="toc-number">5.2.</span> <span class="toc-text">Entailments:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Inference"><span class="toc-number"></span> <span class="toc-text">Inference</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Inference-Rules"><span class="toc-number"></span> <span class="toc-text">Inference Rules</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Modus-Ponens"><span class="toc-number">1.</span> <span class="toc-text">Modus Ponens</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#And-Elimination"><span class="toc-number">2.</span> <span class="toc-text">And Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Double-Negation-Elimination"><span class="toc-number">3.</span> <span class="toc-text">Double Negation Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Implication-Elimination"><span class="toc-number">4.</span> <span class="toc-text">Implication Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Biconditional-Elimination"><span class="toc-number">5.</span> <span class="toc-text">Biconditional Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#De-Morgan%E2%80%99s-Law"><span class="toc-number">6.</span> <span class="toc-text">De Morgan’s Law</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Distributive-Property"><span class="toc-number">7.</span> <span class="toc-text">Distributive Property</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Knowledge-Based-Agents"><span class="toc-number">1.</span> <span class="toc-text">Knowledge-Based Agents</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Propositional-Logic"><span class="toc-number">2.</span> <span class="toc-text">Propositional Logic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Model"><span class="toc-number">3.</span> <span class="toc-text">Model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Model-Example"><span class="toc-number">3.1.</span> <span class="toc-text">Model Example</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Knowledge-Base"><span class="toc-number">4.</span> <span class="toc-text">Knowledge Base</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Entailment-models"><span class="toc-number">5.</span> <span class="toc-text">Entailment $\models$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Implication"><span class="toc-number">5.1.</span> <span class="toc-text">Implication:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Entailments"><span class="toc-number">5.2.</span> <span class="toc-text">Entailments:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Inference"><span class="toc-number"></span> <span class="toc-text">Inference</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Inference-Rules"><span class="toc-number"></span> <span class="toc-text">Inference Rules</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Modus-Ponens"><span class="toc-number">1.</span> <span class="toc-text">Modus Ponens</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#And-Elimination"><span class="toc-number">2.</span> <span class="toc-text">And Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Double-Negation-Elimination"><span class="toc-number">3.</span> <span class="toc-text">Double Negation Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Implication-Elimination"><span class="toc-number">4.</span> <span class="toc-text">Implication Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Biconditional-Elimination"><span class="toc-number">5.</span> <span class="toc-text">Biconditional Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#De-Morgan%E2%80%99s-Law"><span class="toc-number">6.</span> <span class="toc-text">De Morgan’s Law</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Distributive-Property"><span class="toc-number">7.</span> <span class="toc-text">Distributive Property</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Resolution"><span class="toc-number">8.</span> <span class="toc-text">Resolution</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Applications"><span class="toc-number">8.1.</span> <span class="toc-text">Applications</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Clause"><span class="toc-number">9.</span> <span class="toc-text">Clause</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#First-Order-Logic"><span class="toc-number"></span> <span class="toc-text">First Order Logic</span></a>
       </div>
     
   </span>
@@ -296,7 +298,7 @@
 <h2 id="Biconditional-Elimination"><a href="#Biconditional-Elimination" class="headerlink" title="Biconditional Elimination"></a>Biconditional Elimination</h2><p> $\alpha \leftrightarrow \beta$</p>
 <div>------------------------------</div>
 
-<p> $(\alpha\rightarrow\beta)\vee(\beta\rightarrow\alpha)$</p>
+<p> $(\alpha\rightarrow\beta)\wedge(\beta\rightarrow\alpha)$</p>
 <h2 id="De-Morgan’s-Law"><a href="#De-Morgan’s-Law" class="headerlink" title="De Morgan’s Law"></a>De Morgan’s Law</h2><div style="display: flex; gap: 90px;">
 <div>
 ¬ (α ∧ β)
@@ -312,7 +314,106 @@
 </div>
 </div>
 
-<h2 id="Distributive-Property"><a href="#Distributive-Property" class="headerlink" title="Distributive Property"></a>Distributive Property</h2>
+<h2 id="Distributive-Property"><a href="#Distributive-Property" class="headerlink" title="Distributive Property"></a>Distributive Property</h2><div style="display: flex; gap: 90px;">
+<div>
+(α ∧ (β ∨ γ))
+
+<hr>
+<p>(α ∧ β) ∨ (α ∧ γ)</p>
+</div>
+<div>
+(α ∨ (β ∧ γ))
+
+<hr>
+<p>(α ∨ β) ∧ (α ∨ γ)</p>
+</div>
+</div>
+
+<p><strong>Here is the explanation in boolean algebra</strong><br><img src="/Machine-Learning-Knowledge/BA.png" alt="IMAGE"></p>
+<h2 id="Resolution"><a href="#Resolution" class="headerlink" title="Resolution"></a>Resolution</h2><p><strong>Resolution</strong> is a powerful inference rule state that if one of two atomic propositions in an disjunction is false, the other has to be true. It relies on <strong>Complementary Literals</strong>, two of the same atomic propositions where one is negated and the other is not, such as P and ¬P.</p>
+<div style="display: flex; gap: 90px;">
+<div>
+P ∨ Q
+¬ P
+
+<hr>
+<p>Q</p>
+</div>
+<div>
+P ∨ Q
+¬ P ∨ R
+
+<hr>
+<p>Q ∨ R</p>
+</div>
+</div>
+
+<h3 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h3><p>In the search part, we introduce Search Problem,</p>
+<p>Theorem Proving</p>
+<ul>
+<li><strong>Initial state</strong>: starting knowledge base</li>
+<li><strong>Actions</strong>: inference rules</li>
+<li><strong>Transition</strong> model: new knowledge base after inference</li>
+<li><strong>Goal test</strong>: checking whether the statement that we are trying to prove is in the KB</li>
+<li><strong>Path cost function</strong>: the number of steps in the proof</li>
+</ul>
+<h2 id="Clause"><a href="#Clause" class="headerlink" title="Clause"></a>Clause</h2><p>It is a disjunction of literals.</p>
+<blockquote>
+<p>e.g. P ∨ Q ∨ R<br>Clauses allow us to convert any logical statement into a Conjunction Normal Form(CNF, just like Product of Sum in boolean algebra), which is a conjunction of clauses, for example: (A ∨ B ∨ C) ∧ (D ∨ ¬E) ∧ (F ∨ G).</p>
+</blockquote>
+<p>Steps in Conversion of Propositions to Conjunctive Normal Form</p>
+<ul>
+<li>Eliminate biconditionals<ul>
+<li>Turn (α ↔ β) into (α → β) ∧ (β → α).</li>
+</ul>
+</li>
+<li>Eliminate implications<ul>
+<li>Turn (α → β) into ¬α ∨ β.</li>
+</ul>
+</li>
+<li>Move negation inwards until only literals are being negated (and not clauses), using De Morgan’s Laws.<ul>
+<li>Turn ¬(α ∧ β) into ¬α ∨ ¬β</li>
+</ul>
+</li>
+</ul>
+<p>Here’s an example of converting (P ∨ Q) → R to Conjunctive Normal Form:</p>
+<ul>
+<li>(P ∨ Q) → R</li>
+<li>¬(P ∨ Q) ∨ R &#x2F;Eliminate implication</li>
+<li>(¬P ∧ ¬Q) ∨ R &#x2F;De Morgan’s Law</li>
+<li>(¬P ∨ R) ∧ (¬Q ∨ R) &#x2F;Distributive Law</li>
+</ul>
+<p>At this point, we can run an inference algorithm on the conjunctive normal form. Occasionally, through the process of inference by resolution, we might end up in cases where a clause contains the same literal twice. In these cases, a process called factoring is used, where the duplicate literal is removed. For example, (P ∨ Q ∨ S) ∧ (¬P ∨ R ∨ S) allow us to infer by resolution that (Q ∨ S ∨ R ∨ S). The duplicate S can be removed to give us (Q ∨ R ∨ S).</p>
+<p>Resolving a literal and its negation, i.e. ¬P and P, gives the empty clause (). The empty clause is always false, and this makes sense because it is impossible that both P and ¬P are true. This fact is used by the resolution algorithm.</p>
+<ul>
+<li>To determine if KB ⊨ α:<ul>
+<li>Check: is (KB ∧ ¬α) a contradiction?<ul>
+<li>If so, then KB ⊨ α.</li>
+<li>Otherwise, no entailment.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Proof by contradiction is a tool used often in computer science. If our knowledge base is true, and it contradicts ¬α, it means that ¬α is false, and, therefore, α must be true. More technically, the algorithm would perform the following actions:</p>
+<ul>
+<li>To determine if KB ⊨ α:<ul>
+<li>Convert (KB ∧ ¬α) to Conjunctive Normal Form.</li>
+<li>Keep checking to see if we can use resolution to produce a new clause.</li>
+<li>If we ever produce the empty clause (equivalent to False), congratulations! We have arrived at a contradiction, thus proving that KB ⊨ α.</li>
+<li>However, if contradiction is not achieved and no more clauses can be inferred, there is no entailment.</li>
+</ul>
+</li>
+</ul>
+<p>Here is an example that illustrates how this algorithm might work:</p>
+<ul>
+<li>Does (A ∨ B) ∧ (¬B ∨ C) ∧ (¬C) entail A?</li>
+<li>First, to prove by contradiction, we assume that A is false. Thus, we arrive at (A ∨ B) ∧ (¬B ∨ C) ∧ (¬C) ∧ (¬A).</li>
+<li>Now, we can start generating new information. Since we know that C is false (¬C), the only way (¬B ∨ C) can be true is if B is false, too. Thus, we can add (¬B) to our KB.</li>
+<li>Next, since we know (¬B), the only way (A ∨ B) can be true is if A is true. Thus, we can add (A) to our KB.</li>
+<li>Now our KB has two complementary literals, (A) and (¬A). We resolve them, arriving at the empty set, (). The empty set is false by definition, so we have arrived at a contradiction.</li>
+</ul>
+<h1 id="First-Order-Logic"><a href="#First-Order-Logic" class="headerlink" title="First Order Logic"></a>First Order Logic</h1>
   </div>
 </article>
 
@@ -343,7 +444,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Knowledge-Based-Agents"><span class="toc-number">1.</span> <span class="toc-text">Knowledge-Based Agents</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Propositional-Logic"><span class="toc-number">2.</span> <span class="toc-text">Propositional Logic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Model"><span class="toc-number">3.</span> <span class="toc-text">Model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Model-Example"><span class="toc-number">3.1.</span> <span class="toc-text">Model Example</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Knowledge-Base"><span class="toc-number">4.</span> <span class="toc-text">Knowledge Base</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Entailment-models"><span class="toc-number">5.</span> <span class="toc-text">Entailment $\models$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Implication"><span class="toc-number">5.1.</span> <span class="toc-text">Implication:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Entailments"><span class="toc-number">5.2.</span> <span class="toc-text">Entailments:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Inference"><span class="toc-number"></span> <span class="toc-text">Inference</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Inference-Rules"><span class="toc-number"></span> <span class="toc-text">Inference Rules</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Modus-Ponens"><span class="toc-number">1.</span> <span class="toc-text">Modus Ponens</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#And-Elimination"><span class="toc-number">2.</span> <span class="toc-text">And Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Double-Negation-Elimination"><span class="toc-number">3.</span> <span class="toc-text">Double Negation Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Implication-Elimination"><span class="toc-number">4.</span> <span class="toc-text">Implication Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Biconditional-Elimination"><span class="toc-number">5.</span> <span class="toc-text">Biconditional Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#De-Morgan%E2%80%99s-Law"><span class="toc-number">6.</span> <span class="toc-text">De Morgan’s Law</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Distributive-Property"><span class="toc-number">7.</span> <span class="toc-text">Distributive Property</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Knowledge-Based-Agents"><span class="toc-number">1.</span> <span class="toc-text">Knowledge-Based Agents</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Propositional-Logic"><span class="toc-number">2.</span> <span class="toc-text">Propositional Logic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Model"><span class="toc-number">3.</span> <span class="toc-text">Model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Model-Example"><span class="toc-number">3.1.</span> <span class="toc-text">Model Example</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Knowledge-Base"><span class="toc-number">4.</span> <span class="toc-text">Knowledge Base</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Entailment-models"><span class="toc-number">5.</span> <span class="toc-text">Entailment $\models$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Implication"><span class="toc-number">5.1.</span> <span class="toc-text">Implication:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Entailments"><span class="toc-number">5.2.</span> <span class="toc-text">Entailments:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Inference"><span class="toc-number"></span> <span class="toc-text">Inference</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Inference-Rules"><span class="toc-number"></span> <span class="toc-text">Inference Rules</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Modus-Ponens"><span class="toc-number">1.</span> <span class="toc-text">Modus Ponens</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#And-Elimination"><span class="toc-number">2.</span> <span class="toc-text">And Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Double-Negation-Elimination"><span class="toc-number">3.</span> <span class="toc-text">Double Negation Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Implication-Elimination"><span class="toc-number">4.</span> <span class="toc-text">Implication Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Biconditional-Elimination"><span class="toc-number">5.</span> <span class="toc-text">Biconditional Elimination</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#De-Morgan%E2%80%99s-Law"><span class="toc-number">6.</span> <span class="toc-text">De Morgan’s Law</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Distributive-Property"><span class="toc-number">7.</span> <span class="toc-text">Distributive Property</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Resolution"><span class="toc-number">8.</span> <span class="toc-text">Resolution</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Applications"><span class="toc-number">8.1.</span> <span class="toc-text">Applications</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Clause"><span class="toc-number">9.</span> <span class="toc-text">Clause</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#First-Order-Logic"><span class="toc-number"></span> <span class="toc-text">First Order Logic</span></a>
       </div>
     
 
