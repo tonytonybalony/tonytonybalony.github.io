@@ -15,11 +15,11 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://tonytonybalony.github.io/Machine-Learning-Knowledge/BA.png">
 <meta property="article:published_time" content="2025-08-26T08:16:44.000Z">
-<meta property="article:modified_time" content="2025-09-14T16:15:41.848Z">
+<meta property="article:modified_time" content="2025-09-14T16:21:12.198Z">
 <meta property="article:author" content="Tony">
 <meta property="article:tag" content="Machine Learning">
-<meta property="article:tag" content="Knowledge">
 <meta property="article:tag" content="Harvard CS50">
+<meta property="article:tag" content="Knowledge">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://tonytonybalony.github.io/Machine-Learning-Knowledge/BA.png">
     
@@ -416,19 +416,19 @@ P ∨ Q
 </ul>
 <h1 id="First-Order-Logic"><a href="#First-Order-Logic" class="headerlink" title="First-Order Logic"></a>First-Order Logic</h1><p><strong>FOL</strong></p>
 <p>A logic that is more expressive on representing the relationships and properties of objects. FOL uses two types of symbols: Constant Symbols and Predicate Symbols.</p>
-<p>Person(Tony)<br>Person(Jack)<br>Person(Aaron)<br>Person(Mike)<br>House(Mansion)</p>
-<p>BelongsTo(Mansion, Tony)<br>BelongsTo(Mansion, Jack)<br>BelongsTo(Mansion, Aaron)<br>BelongsTo(Mansion, Mike)</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">Person</span><span class="hljs-params">(Tony)</span></span><br><span class="hljs-function"><span class="hljs-title">Person</span><span class="hljs-params">(Jack)</span></span><br><span class="hljs-function"><span class="hljs-title">Person</span><span class="hljs-params">(Aaron)</span></span><br><span class="hljs-function"><span class="hljs-title">Person</span><span class="hljs-params">(Mike)</span></span><br><span class="hljs-function"><span class="hljs-title">House</span><span class="hljs-params">(Mansion)</span></span><br><br><span class="hljs-function"><span class="hljs-title">BelongsTo</span><span class="hljs-params">(Mansion, Tony)</span></span><br><span class="hljs-function"><span class="hljs-title">BelongsTo</span><span class="hljs-params">(Mansion, Jack)</span></span><br><span class="hljs-function"><span class="hljs-title">BelongsTo</span><span class="hljs-params">(Mansion, Aaron)</span></span><br><span class="hljs-function"><span class="hljs-title">BelongsTo</span><span class="hljs-params">(Mansion, Mike)</span></span><br></code></pre></td></tr></table></figure>
+
 <p>FOL allows having one symbol for each person and one symbol for each house. This is more succinct than propositional logic, where each person—house assignment would require a different symbol.</p>
 <p>Let me show you the example above in propositional logic:</p>
-<p>TonyIsPerson<br>JackIsPerson<br>AaronIsPerson<br>MikeIsPerson<br>MansionIsHouse</p>
-<p>MansionBelongsToTony<br>MansionBelongsToJack<br>MansionBelongsToAaron<br>MansionBelongsToMike</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">TonyIsPerson</span><br><span class="hljs-attribute">JackIsPerson</span><br><span class="hljs-attribute">AaronIsPerson</span><br><span class="hljs-attribute">MikeIsPerson</span><br><span class="hljs-attribute">MansionIsHouse</span><br><span class="hljs-attribute"></span><br><span class="hljs-attribute">MansionBelongsToTony</span><br><span class="hljs-attribute">MansionBelongsToJack</span><br><span class="hljs-attribute">MansionBelongsToAaron</span><br><span class="hljs-attribute">MansionBelongsToMike</span><br></code></pre></td></tr></table></figure>
+
 <h2 id="Constant-Symbols"><a href="#Constant-Symbols" class="headerlink" title="Constant Symbols"></a>Constant Symbols</h2><p>In the previous examples, Tony, Jack, Aaron, Mike, and Mansion are constant symbols. They represent objects.</p>
 <h2 id="Predicate-Symbols"><a href="#Predicate-Symbols" class="headerlink" title="Predicate Symbols"></a>Predicate Symbols</h2><p>Person, House, BelongsTo are predicate symbols, They are like functions that take an argument and return the truth value.</p>
 <h2 id="Universal-Quantification-∀"><a href="#Universal-Quantification-∀" class="headerlink" title="Universal Quantification ∀"></a>Universal Quantification ∀</h2><p>∀ stands for “for all”</p>
-<p>∀x (Person(x) ∧ BelongsTo(x, Tony) → ¬BelongsTo(x, Aaron))<br>For all objects of x, where if x is a person and x belongs to Tony, then x does not belong to Aaron.</p>
+<p><code>∀x (Person(x) ∧ BelongsTo(x, Tony) → ¬BelongsTo(x, Aaron))</code><br>For all objects of x, where if x is a person and x belongs to Tony, then x does not belong to Aaron.</p>
 <h2 id="Existential-Quantification"><a href="#Existential-Quantification" class="headerlink" title="Existential Quantification"></a>Existential Quantification</h2><p>∃ stands for “there exists”</p>
-<p>∃x. House(x) ∧ BelongsTo(Mickey, x)<br>There exists an object x such that x is a house and Mickey belongs to x.</p>
-<p>∀x. Person(x) → (∃y. House(y) ∧ BelongsTo(x, y))<br>For all objects of x, if x is a person, then there exists an object y such that y is a house and x belongs to y.</p>
+<p><code>∃x. House(x) ∧ BelongsTo(Mickey, x)</code><br>There exists an object x such that x is a house and Mickey belongs to x.</p>
+<p><code>∀x. Person(x) → (∃y. House(y) ∧ BelongsTo(x, y))</code><br>For all objects of x, if x is a person, then there exists an object y such that y is a house and x belongs to y.</p>
 <blockquote>
 <p>These quantifiers are what makes FOL stands out in the aspect of representing relationships.</p>
 </blockquote>
